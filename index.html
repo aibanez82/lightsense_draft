@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  body {
-    font-family: 'Poppins', sans-serif;
-  }
-</style>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lightsense</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Aplica Poppins globalmente */
+    html, body, * {
+      font-family: 'Poppins', sans-serif !important;
+    }
+    /* Ajustes para títulos */
+    h1, h2, h3 {
+      letter-spacing: 0.03em; /* Aumenta el espaciado entre letras */
+      font-weight: 600; /* Peso más ligero que 700 para menos densidad */
+    }
+    /* Ajuste específico para el h1 del Hero */
+    h1.text-4xl {
+      font-size: 2.25rem; /* Reduce ligeramente de 2.5rem (text-4xl) */
+      line-height: 1.2; /* Mejora la legibilidad */
+      margin-bottom: 1.5rem; /* Más espacio inferior */
+    }
+    /* Ajuste para h2 en secciones */
+    h2.text-2xl {
+      letter-spacing: 0.05em; /* Más espaciado para h2 */
+      margin-bottom: 2.5rem; /* Más espacio para separar del contenido */
+    }
+    /* Ajuste para h3 en tarjetas */
+    h3 {
+      letter-spacing: 0.04em;
+      font-weight: 500; /* Más ligero para tarjetas */
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans">
+<body class="bg-gray-900 text-gray-100">
   <!-- Header -->
   <header class="flex items-center justify-between px-6 py-4 border-b border-gray-700">
     <div class="text-xl font-bold text-blue-400">LS <span class="text-white">LIGHTSENSE</span></div>
     <nav class="space-x-6">
-      <a href="#" class="hover:text-blue-400">Solicita una reunión</a>
-      <a href="#" class="hover:text-blue-400">Conoce</a>
+      <a href="#" class="hover:text-blue-400" aria-label="Solicita una reunión">Solicita una reunión</a>
+      <a href="#" class="hover:text-blue-400" aria-label="Conoce más sobre Lightsense">Conoce</a>
     </nav>
   </header>
 
@@ -29,64 +52,64 @@
     <p class="text-base text-gray-300">
       En Lightsense ayudamos a empresas a modernizarse, automatizar y resolver sus necesidades
       con soluciones líderes como Salesforce, Appian y Databricks. Navega con éxito en la
-      convergencia entre estrategia, tecnología y ejecución.<hr class="mt-6 mb-1 border-t-2 border-blue-400">
+      convergencia entre estrategia, tecnología y ejecución.
+    </p>
+    <hr class="mt-6 mb-1 border-t-2 border-blue-400" />
   </section>
 
   <!-- Servicios principales -->
-  <section class="px-6 py-0 max-w-6xl mx-auto">
+  <section class="px-6 py-12 max-w-6xl mx-auto">
     <h2 class="text-2xl font-semibold mb-8 text-center">Servicios principales</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <div class="bg-gray-800 p-6 rounded-lg hover:bg-purple-700 transition-colors ">
+      <div class="bg-gray-800 p-6 rounded-lg hover:bg-purple-700 transition-colors">
         <h3 class="text-lg font-semibold text-blue-400 mb-2">HyperAutomation</h3>
-        <p class="text-gray-300 font-normal font-sans font-normal font-sans">Optimización de procesos con low-code y automatización extendida</p>
+        <p class="text-gray-300">Optimización de procesos con low-code y automatización extendida</p>
       </div>
       <div class="bg-gray-800 p-6 rounded-lg hover:bg-purple-700 transition-colors">
         <h3 class="text-lg font-semibold text-blue-400 mb-2">Customer Experience</h3>
-        <p class="text-gray-300 font-normal font-sans">CRM a tu medida y experiencias personalizadas</p>
+        <p class="text-gray-300">CRM a tu medida y experiencias personalizadas</p>
       </div>
       <div class="bg-gray-800 p-6 rounded-lg hover:bg-purple-700 transition-colors">
         <h3 class="text-lg font-semibold text-blue-400 mb-2">Data</h3>
-        <p class="text-gray-300 font-normal font-sans">Análisis y arquitectura moderna para datos en tiempo real</p>
+        <p class="text-gray-300">Análisis y arquitectura moderna para datos en tiempo real</p>
       </div>
       <div class="bg-gray-800 p-6 rounded-lg hover:bg-purple-700 transition-colors">
         <h3 class="text-lg font-semibold text-blue-400 mb-2">Integration Platforms</h3>
-        <p class="text-gray-300 font-normal font-sans">Conectamos sistemas y aplicaciones para flujos de trabajo unificados</p>
+        <p class="text-gray-300">Conectamos sistemas y aplicaciones para flujos de trabajo unificados</p>
       </div>
-     
-</div>
+    </div>
   </section>
 
-
-  <section class="px-6 pt-6 pb-12 max-w-2xl mx-auto">
+  <!-- Inteligencia Artificial -->
+  <section class="px-6 py-12 max-w-2xl mx-auto">
     <div class="bg-gray-800 p-6 rounded-lg text-center border-2 border-blue-400 hover:bg-purple-700 transition-colors">
       <h3 class="text-xl font-bold mb-2">Artificial Intelligence</h3>
       <p class="text-gray-300">
         Impulsamos cada solución con IA aplicada para la toma de decisiones, automatización y personalización.
       </p>
     </div>
-    </section>
+  </section>
 
-<!-- Alianzas -->
-<section class="px-6 py-12 max-w-6xl mx-auto">
-  <h2 class="text-2xl font-semibold mb-8 text-center text-white">Alianzas</h2>
-  <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-    <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
-      <img src="logos/appian.png" alt="Appian" class="h-16 w-24 object-contain">
+  <!-- Alianzas -->
+  <section class="px-6 py-12 max-w-6xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-8 text-center text-white">Alianzas</h2>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+      <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
+        <img src="logos/appian.png" alt="Appian" class="h-16 w-24 object-contain" loading="lazy">
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
+        <img src="logos/salesforce.png" alt="Salesforce" class="h-16 w-24 object-contain" loading="lazy">
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
+        <img src="logos/databricks.png" alt="Databricks" class="h-16 w-24 object-contain" loading="lazy">
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
+        <img src="logos/mulesoft.png" alt="Mulesoft" class="h-16 w-24 object-contain" loading="lazy">
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
+        <img src="logos/palantir.png" alt="Palantir" class="h-16 w-24 object-contain" loading="lazy">
+      </div>
     </div>
-    <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
-      <img src="logos/salesforce.png" alt="Salesforce" class="h-16 w-24 object-contain">
-    </div>
-    <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
-      <img src="logos/databricks.png" alt="Databricks" class="h-16 w-24 object-contain">
-    </div>
-    <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
-      <img src="logos/mulesoft.png" alt="Mulesoft" class="h-16 w-24 object-contain">
-    </div>
-    <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
-      <img src="logos/palantir.png" alt="Palantir" class="h-16 w-24 object-contain">
-    </div>
-  </div>
-</section>
+  </section>
 </body>
 </html>
-
