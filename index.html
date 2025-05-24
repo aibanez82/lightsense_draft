@@ -44,26 +44,48 @@
       scroll-behavior: smooth;
     }
 
-/* ADD THIS NEW MEDIA QUERY AT THE END OF YOUR STYLE SECTION */
-    @media (max-width: 767px) {
-      #main-nav {
-        top: 100%;
-        padding: 1rem 0;
-      }
-      
-      #main-nav a {
-        padding: 0.75rem 1rem;
-        margin: 0.25rem 0;
-      }
-      
-      #menu-btn {
-        transition: all 0.3s ease;
-      }
-      
-      #menu-btn[aria-expanded="true"] {
-        transform: rotate(90deg);
-      }
+/* ADD THIS NEW MEDIA QUERY AT THE END OF YOUR STYLE SECTION Hamburger Menu */
+@media (max-width: 767px) {
+    /* Add position relative to header */
+    header {
+      position: relative;
     }
+
+    #main-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #111827; /* Match your bg-gray-900 color */
+      padding: 1rem 0;
+      z-index: 50;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    }
+
+    #main-nav a {
+      display: block;
+      padding: 1rem;
+      margin: 0 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #main-nav a:last-child {
+      border-bottom: none;
+    }
+
+    #menu-btn {
+      transition: all 0.3s ease;
+    }
+
+    #menu-btn[aria-expanded="true"] {
+      transform: rotate(90deg);
+    }
+
+    /* Hide scrollbar when menu is open */
+    body.menu-open {
+      overflow: hidden;
+    }
+  }
     
   </style>
 </head>
@@ -76,10 +98,15 @@
     <span class="text-white text-xl font-bold">LIGHTSENSE</span>
   </div>
 
-  <!-- Hamburger Button (Mobile Only) -->
+  <!-- Hamburger Button -->
   <div class="block md:hidden">
-    <button id="menu-btn" class="flex items-center px-3 py-2 border rounded text-gray-300 border-gray-400 hover:text-white hover:border-white">
-      <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <button 
+      id="menu-btn" 
+      class="flex items-center px-3 py-2 border rounded text-gray-300 border-gray-400 hover:text-white hover:border-white"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
         <title>Menu</title>
         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
       </svg>
@@ -87,11 +114,14 @@
   </div>
 
   <!-- Navigation Menu -->
-  <nav id="main-nav" class="hidden w-full md:w-auto md:flex md:items-center transition-all duration-300 ease-in-out">
-    <div class="text-sm md:flex-grow md:flex md:space-x-6 mt-4 md:mt-0">
-      <a href="#servicios-principales" class="block md:inline-block px-3 py-2 hover:text-blue-400 transition-colors text-center">Servicios</a>
-      <a href="#alianzas" class="block md:inline-block px-3 py-2 hover:text-blue-400 transition-colors text-center">Alianzas</a>
-      <a href="#contacto" class="block md:inline-block px-3 py-2 hover:text-blue-400 transition-colors text-center">Contacto</a>
+  <nav 
+    id="main-nav" 
+    class="hidden opacity-0 transition-opacity duration-300 ease-in-out md:flex md:items-center md:w-auto w-full"
+  >
+    <div class="md:flex-grow md:flex md:space-x-6">
+      <a href="#servicios-principales" class="hover:text-blue-400 transition-colors">Servicios</a>
+      <a href="#alianzas" class="hover:text-blue-400 transition-colors">Alianzas</a>
+      <a href="#contacto" class="hover:text-blue-400 transition-colors">Contacto</a>
     </div>
   </nav>
 </header>
@@ -191,29 +221,50 @@
     </div>
   </section>
 
-<!-- Add this script at the end of your body before closing </body> tag -->
+<!-- Add this script at the end of your body before closing </body> tag Hamburger Menu -->
 <script>
   const menuBtn = document.getElementById('menu-btn');
   const mainNav = document.getElementById('main-nav');
+  const body = document.body;
 
   menuBtn.addEventListener('click', () => {
+    const isExpanded = mainNav.classList.contains('hidden');
+    
+    // Toggle menu visibility
     mainNav.classList.toggle('hidden');
-    mainNav.classList.toggle('absolute');
-    mainNav.classList.toggle('bg-gray-900');
-    mainNav.classList.toggle('z-50');
-    mainNav.classList.toggle('w-full');
-    mainNav.classList.toggle('left-0');
-    mainNav.classList.toggle('shadow-lg');
+    body.classList.toggle('menu-open');
+    
+    // Update ARIA attributes
+    menuBtn.setAttribute('aria-expanded', !isExpanded);
+    
+    // Add/remove animation class
+    if (!isExpanded) {
+      setTimeout(() => mainNav.classList.remove('opacity-0'), 50);
+    } else {
+      mainNav.classList.add('opacity-0');
+    }
   });
 
-  // Close menu when clicking a link (mobile only)
+  // Close menu when clicking links
   document.querySelectorAll('#main-nav a').forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth < 768) {
-        mainNav.classList.add('hidden');
-        mainNav.classList.remove('absolute', 'bg-gray-900', 'z-50', 'w-full', 'left-0', 'shadow-lg');
+        mainNav.classList.add('hidden', 'opacity-0');
+        body.classList.remove('menu-open');
+        menuBtn.setAttribute('aria-expanded', 'false');
       }
     });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth < 768 && 
+        !menuBtn.contains(e.target) && 
+        !mainNav.contains(e.target)) {
+      mainNav.classList.add('hidden', 'opacity-0');
+      body.classList.remove('menu-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
   });
 </script>
   
