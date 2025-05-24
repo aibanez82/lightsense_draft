@@ -45,45 +45,52 @@
     }
 
 /* ADD THIS NEW MEDIA QUERY AT THE END OF YOUR STYLE SECTION Hamburger Menu */
+    
 @media (max-width: 767px) {
-    /* Add position relative to header */
-    header {
-      position: relative;
-    }
-
+    /* Menú móvil */
     #main-nav {
-      position: absolute;
-      top: 100%;
+      position: fixed;
+      top: 60px; /* Ajusta según la altura de tu header */
       left: 0;
       right: 0;
-      background: #111827; /* Match your bg-gray-900 color */
-      padding: 1rem 0;
+      background: #1a202c;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
       z-index: 50;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #main-nav.active {
+      max-height: 500px;
+      opacity: 1;
+      visibility: visible;
+      padding: 1rem 0;
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
     }
 
     #main-nav a {
       display: block;
-      padding: 1rem;
-      margin: 0 1rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 2rem;
+      color: #e2e8f0;
+      border-bottom: 1px solid #2d3748;
+      transition: all 0.2s ease;
     }
 
-    #main-nav a:last-child {
-      border-bottom: none;
+    #main-nav a:hover {
+      background: #2d3748;
+      color: #63b3ed;
     }
 
     #menu-btn {
       transition: all 0.3s ease;
+      z-index: 100;
     }
 
-    #menu-btn[aria-expanded="true"] {
+    #menu-btn.active {
       transform: rotate(90deg);
-    }
-
-    /* Hide scrollbar when menu is open */
-    body.menu-open {
-      overflow: hidden;
+      border-color: #fff;
     }
   }
     
