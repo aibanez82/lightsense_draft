@@ -51,12 +51,13 @@
   </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
+
   
-  <!-- Header Simplificado -->
 <!-- Header -->
+
 <header class="sticky top-0 z-50 bg-gray-900 border-b border-gray-700">
   <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="#" class="flex items-center hover:opacity-80 transition-opacity">
+    <a href="#inicio" id="logo-header" class="flex items-center hover:opacity-80 transition-opacity">
       <img src="/logos/logo_header.png" alt="Lightsense Logo" class="h-6 inline-block mr-2">
       <span class="text-white text-xl font-bold">LIGHTSENSE</span>
     </a>
@@ -232,16 +233,32 @@
   </footer>
 
   <script>
-  // Scroll suave para todos los enlaces con hash
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
+  // Scroll al inicio con suavidad
+  document.getElementById('logo-header').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
+    
+    // Opcional: Remover el hash de la URL
+    history.pushState(null, null, ' ');
   });
 </script>
+
+<!-- Añade este CSS si no lo tienes -->
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Para soporte completo en todos los navegadores */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+</style>
 
 </body>
 </html>
