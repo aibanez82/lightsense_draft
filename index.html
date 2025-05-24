@@ -49,7 +49,7 @@
 @media (max-width: 767px) {
   #main-nav {
     position: fixed;
-    top: 68px; /* Ajustado según altura del header */
+    top: 68px;
     left: 0;
     right: 0;
     background: #1a202c;
@@ -58,7 +58,7 @@
     transition: all 0.3s ease-in-out;
     z-index: 40;
     opacity: 0;
-    display: block !important; /* Forzar display */
+    display: block !important;
   }
 
   #main-nav.active {
@@ -71,12 +71,21 @@
   #main-nav a {
     display: block;
     padding: 1rem 2rem;
-    color: #e2e8f0;
+    color: #e2e8f0 !important;
     border-bottom: 1px solid #2d3748;
+    transition: all 0.2s ease;
   }
 
+  /* Rotación del ícono */
   #menu-btn.active svg {
     transform: rotate(90deg);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hover para móviles */
+  #main-nav a:active {
+    background: #2d3748;
+    color: #63b3ed !important;
   }
 }
     
@@ -203,47 +212,38 @@
   const menuBtn = document.getElementById('menu-btn');
   const mainNav = document.getElementById('main-nav');
 
-  menuBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-    
-    // Toggle classes
+  // Función para alternar menú
+  const toggleMenu = () => {
     menuBtn.classList.toggle('active');
     mainNav.classList.toggle('active');
-    menuBtn.setAttribute('aria-expanded', !isExpanded);
-    
-    // Controlar scroll
     document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : 'auto';
+  };
+
+  // Evento click en hamburguesa
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
   });
 
-  // Cerrar menú al hacer clic en enlaces
+  // Cerrar menú al hacer click en enlaces
   document.querySelectorAll('#main-nav a').forEach(link => {
     link.addEventListener('click', () => {
-      if (window.innerWidth < 768) {
-        mainNav.classList.remove('active');
-        menuBtn.classList.remove('active');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = 'auto';
-      }
+      if (window.innerWidth < 768) toggleMenu();
     });
   });
 
-  // Cerrar menú al hacer clic fuera
+  // Cerrar menú al hacer click fuera
   document.addEventListener('click', (e) => {
-    if (!mainNav.contains(e.target) {
-      mainNav.classList.remove('active');
-      menuBtn.classList.remove('active');
-      menuBtn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = 'auto';
+    if (!mainNav.contains(e.target) && !menuBtn.contains(e.target)) {
+      if (mainNav.classList.contains('active')) toggleMenu();
     }
   });
 
-  // Resetear al cambiar tamaño de pantalla
+  // Resetear en resize
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 768) {
       mainNav.classList.remove('active');
       menuBtn.classList.remove('active');
-      menuBtn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = 'auto';
     }
   });
