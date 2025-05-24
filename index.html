@@ -1,311 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lightsense</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lightsense - Transformación Digital Inteligente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  
   <!-- Favicon -->
-  
-<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-<link rel="manifest" href="favicon/site.webmanifest">
-  
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+
   <style>
-    /* Aplica Poppins globalmente */
+    @keyframes fade-in-up {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out forwards;
+    }
+
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.03);
+    }
+
     html, body, * {
       font-family: 'Poppins', sans-serif !important;
     }
-    /* Ajustes para títulos */
-    h1, h2, h3 {
-      letter-spacing: 0.03em; /* Aumenta el espaciado entre letras */
-      font-weight: 600; /* Peso más ligero que 700 para menos densidad */
-    }
-    /* Ajuste específico para el h1 del Hero */
-    h1.text-4xl {
-      font-size: 2.25rem; /* Reduce ligeramente de 2.5rem (text-4xl) */
-      line-height: 1.2; /* Mejora la legibilidad */
-      margin-bottom: 1.5rem; /* Más espacio inferior */
-    }
-    /* Ajuste para h2 en secciones */
-    h2.text-2xl {
-      letter-spacing: 0.05em; /* Más espaciado para h2 */
-      margin-bottom: 2.5rem; /* Más espacio para separar del contenido */
-    }
-    /* Ajuste para h3 en tarjetas */
-    h3 {
-      letter-spacing: 0.04em;
-      font-weight: 500; /* Más ligero para tarjetas */
-    }
-    /* Desplazamiento suave para los enlaces */
-    html {
-      scroll-behavior: smooth;
-    }
 
-/* ADD THIS NEW MEDIA QUERY AT THE END OF YOUR STYLE SECTION Hamburger Menu */
-    
-@media (max-width: 767px) {
-  #main-nav {
-    position: fixed;
-    top: 68px;
-    left: 0;
-    right: 0;
-    background: #1a202c;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
-    z-index: 40;
-    opacity: 0;
-    display: block !important;
-  }
-
-  #main-nav.active {
-    max-height: 500px;
-    opacity: 1;
-    padding: 1rem 0;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-  }
-
-  #main-nav a {
-    display: block;
-    padding: 1rem 2rem;
-    color: #e2e8f0 !important;
-    border-bottom: 1px solid #2d3748;
-    transition: all 0.2s ease;
-  }
-
-  /* Rotación del ícono */
-  #menu-btn.active svg {
-    transform: rotate(90deg);
-    transition: transform 0.3s ease;
-  }
-  
-  /* Hover para móviles */
-  #main-nav a:active {
-    background: #2d3748;
-    color: #63b3ed !important;
-  }
-}
-    
+    @media (min-width: 768px) {
+      .hover\:bg-purple-700:hover {
+        background-color: #6b46c1 !important;
+      }
+      .group:hover .group-hover\:text-white {
+        color: #fff !important;
+      }
+      .group:hover .group-hover\:text-gray-100 {
+        color: #f7fafc !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
   
-  <!-- Header actualizado -->
-<header class="flex items-center justify-between px-6 py-4 border-b border-gray-700 bg-gray-900 sticky top-0 z-50">
-  <!-- Logo -->
-  <div class="flex items-center">
-    <img src="/logos/logo_header.png" alt="Lightsense Logo" class="h-6 inline-block mr-2">
-    <span class="text-white text-xl font-bold">LIGHTSENSE</span>
-  </div>
-
-  <!-- Botón Hamburguesa -->
-  <button 
-    id="menu-btn"
-    class="md:hidden p-2 text-gray-300 hover:text-white focus:outline-none"
-    aria-expanded="false"
-  >
-    <svg class="w-8 h-8 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-    </svg>
-  </button>
-
-  <!-- Menú de Navegación -->
-  <nav 
-    id="main-nav"
-    class="md:flex md:items-center md:space-x-6 hidden"
-  >
-    <a href="#servicios-principales" class="hover:text-blue-400 py-2 px-4">Servicios</a>
-    <a href="#alianzas" class="hover:text-blue-400 py-2 px-4">Alianzas</a>
-    <a href="#contacto" class="hover:text-blue-400 py-2 px-4">Contacto</a>
-  </nav>
-</header>
-
-  <!-- Hero Modificado (sin línea azul) -->
-<section class="px-6 py-20 text-center max-w-2xl mx-auto relative overflow-hidden bg-gradient-to-r from-blue-900 to-purple-500 rounded-lg">
-  <!-- Capa de fondo con gráficos de datos -->
-  <div class="absolute inset-0 opacity-20 pointer-events-none">
-    <!-- ... (svg con gráficos) ... -->
-  </div>
-  
-  <!-- Contenido del Hero -->
-  <div class="relative z-10">
-    <h1 class="text-4xl font-bold mb-6">
-      Solving <span class="text-blue-400">business needs</span> with <span class="text-purple-500">smart technology</span>
-    </h1>
-    <p class="text-base text-gray-300">
-      En Lightsense ayudamos a empresas a modernizarse, automatizar y resolver sus necesidades
-      con soluciones líderes como Salesforce, Appian y Databricks. Navega con éxito en la
-      convergencia entre estrategia, tecnología y ejecución.
-    </p>
-    <!-- Eliminamos la línea <hr> aquí -->
-  </div>
-</section>
-
-  <!-- Servicios principales -->
-  <section id="servicios-principales" class="px-6 py-12 max-w-6xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-8 text-center">Servicios principales</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <div class="bg-gray-800 p-6 rounded-lg hover:bg-purple-700 transition-colors">
-        <h3 class="text-lg font-semibold text-blue-400 mb-2">HyperAutomation</h3>
-        <p class="text-gray-300">Optimización de procesos con low-code y automatización extendida</p>
+  <!-- Header Simplificado -->
+  <header class="sticky top-0 z-50 bg-gray-900 border-b border-gray-700">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="/logos/logo_header.png" alt="Lightsense Logo" class="h-6 inline-block mr-2">
+        <span class="text-white text-xl font-bold">LIGHTSENSE</span>
       </div>
-      <div class="bg-gray-800 p-6 rounded-lg hover:bg-purple-700 transition-colors">
-        <h3 class="text-lg font-semibold text-blue-400 mb-2">Customer Experience</h3>
-        <p class="text-gray-300">CRM a tu medida y experiencias personalizadas</p>
-      </div>
-      <div class="bg-gray-800 p-6 rounded-lg hover:bg-purple-700 transition-colors">
-        <h3 class="text-lg font-semibold text-blue-400 mb-2">Data</h3>
-        <p class="text-gray-300">Análisis y arquitectura moderna para datos en tiempo real</p>
-      </div>
-      <div class="bg-gray-800 p-6 rounded-lg hover:bg-purple-700 transition-colors">
-        <h3 class="text-lg font-semibold text-blue-400 mb-2">Integration Platforms</h3>
-        <p class="text-gray-300">Conectamos sistemas y aplicaciones para flujos de trabajo unificados</p>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#servicios" class="hover:text-blue-400">Servicios</a>
+        <a href="#alianzas" class="hover:text-blue-400">Alianzas</a>
+        <a href="#contacto" class="hover:text-blue-400">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="px-6 py-24 md:py-32 text-center relative overflow-hidden bg-gradient-to-br from-blue-900 via-purple-800 to-purple-600">
+    <div class="max-w-4xl mx-auto relative z-10 animate-fade-in-up">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        Transformación Digital <br>
+        <span class="bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent">Inteligente y Estratégica</span>
+      </h1>
+      <p class="text-lg text-gray-200 max-w-2xl mx-auto mb-8">
+        Automatización avanzada, CRM personalizado y análisis de datos en tiempo real para la toma de decisiones
+      </p>
+      <div class="flex justify-center space-x-4">
+        <a href="#contacto" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all transform hover-scale shadow-lg">
+          Agenda una Demo
+        </a>
+        <a href="#servicios" class="border border-blue-400 text-blue-400 hover:bg-blue-900/30 px-8 py-3 rounded-lg transition-all hover-scale">
+          Nuestros Servicios
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Inteligencia Artificial -->
-  <section class="px-6 py-12 max-w-2xl mx-auto">
-    <div class="bg-gray-800 p-6 rounded-lg text-center border-2 border-blue-400 hover:bg-purple-700 transition-colors">
-      <h3 class="text-xl font-bold mb-2">Artificial Intelligence</h3>
-      <p class="text-gray-300">
-        Impulsamos cada solución con IA aplicada para la toma de decisiones, automatización y personalización.
-      </p>
+  <!-- Servicios -->
+  <section id="servicios" class="py-16 container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">Nuestras Soluciones</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="bg-gray-800 p-8 rounded-xl border-2 border-gray-700 hover:border-blue-400 transition-all group relative overflow-hidden hover-scale">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative z-10">
+          <div class="w-14 h-14 bg-blue-900/30 rounded-xl mb-4 flex items-center justify-center">
+            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 group-hover:text-white">HyperAutomation</h3>
+          <p class="text-gray-400 leading-relaxed group-hover:text-gray-100">Flujos de trabajo inteligentes con plataformas low-code líderes</p>
+        </div>
+      </div>
+      <!-- Repetir para otras tarjetas -->
     </div>
   </section>
 
   <!-- Alianzas -->
-  <section id="alianzas" class="px-6 py-12 max-w-6xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-8 text-center text-white">Alianzas</h2>
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-      <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
-        <img src="logos/appian.png" alt="Appian" class="h-16 w-24 object-contain" loading="lazy">
-      </div>
-      <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
-        <img src="logos/salesforce.png" alt="Salesforce" class="h-16 w-24 object-contain" loading="lazy">
-      </div>
-      <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
-        <img src="logos/databricks.png" alt="Databricks" class="h-16 w-24 object-contain" loading="lazy">
-      </div>
-      <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
-        <img src="logos/mulesoft.png" alt="Mulesoft" class="h-16 w-24 object-contain" loading="lazy">
-      </div>
-      <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
-        <img src="logos/palantir.png" alt="Palantir" class="h-16 w-24 object-contain" loading="lazy">
+  <section id="alianzas" class="py-16 bg-gray-800/20">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Alianzas Tecnológicas</h2>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+        <div class="bg-gray-900 p-6 rounded-xl hover:bg-gray-800 transition-colors flex items-center justify-center h-32 grayscale hover:grayscale-0">
+          <img src="logos/appian.png" alt="Appian" class="h-12 object-contain" loading="lazy" width="96" height="64">
+        </div>
+        <!-- Repetir para otros logos -->
       </div>
     </div>
   </section>
 
   <!-- Contacto -->
-<section id="contacto" class="py-16 bg-gradient-to-br from-blue-900/30 to-purple-900/30">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="bg-gray-800 rounded-2xl p-8 shadow-xl">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold mb-4">Impulsa tu Transformación Digital</h2>
-        <p class="text-gray-300">Déjanos tus datos y un especialista se contactará contigo</p>
-      </div>
-      
-      <form class="grid md:grid-cols-2 gap-8">
-        <div class="space-y-6">
-          <input type="text" placeholder="Nombre Completo" class="w-full bg-gray-900 rounded-lg px-4 py-3 border border-gray-700 focus:border-blue-400 focus:ring-2 focus:ring-blue-500/30">
-          <input type="email" placeholder="Correo Electrónico" class="w-full bg-gray-900 rounded-lg px-4 py-3 border border-gray-700 focus:border-blue-400">
+  <section id="contacto" class="py-16 bg-gradient-to-br from-blue-900/30 to-purple-900/30">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="bg-gray-800 rounded-2xl p-8 shadow-xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Impulsa tu Transformación Digital</h2>
+          <p class="text-gray-300">Déjanos tus datos y un especialista se contactará contigo</p>
         </div>
-        <div class="space-y-6">
-          <input type="tel" placeholder="Teléfono" class="w-full bg-gray-900 rounded-lg px-4 py-3 border border-gray-700 focus:border-blue-400">
-          <select class="w-full bg-gray-900 rounded-lg px-4 py-3 border border-gray-700 focus:border-blue-400">
-            <option>Servicio de interés</option>
-            <option>HyperAutomation</option>
-            <option>Customer Experience</option>
-          </select>
-        </div>
-        <div class="md:col-span-2">
-          <textarea rows="4" placeholder="Mensaje" class="w-full bg-gray-900 rounded-lg px-4 py-3 border border-gray-700 focus:border-blue-400"></textarea>
-        </div>
-        <button class="md:col-span-2 w-full bg-blue-500 hover:bg-blue-600 py-4 rounded-lg font-medium transition-colors">
-          Enviar Consulta
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer class="bg-gray-800/50 py-12 mt-24">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid md:grid-cols-4 gap-8 text-gray-300">
-      <div>
-        <img src="/logos/logo_footer.png" alt="Lightsense" class="h-8 mb-4">
-        <p class="text-sm">Innovación tecnológica para resultados estratégicos</p>
-      </div>
-      <div>
-        <h4 class="text-blue-400 font-semibold mb-4">Servicios</h4>
-        <ul class="space-y-2">
-          <li><a href="#servicios" class="hover:text-white">Automatización</a></li>
-          <li><a href="#servicios" class="hover:text-white">Experiencia de Cliente</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-blue-400 font-semibold mb-4">Legal</h4>
-        <ul class="space-y-2">
-          <li><a href="#" class="hover:text-white">Términos de Servicio</a></li>
-          <li><a href="#" class="hover:text-white">Política de Privacidad</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-blue-400 font-semibold mb-4">Contacto</h4>
-        <p class="mb-2">info@lightsense.com</p>
-        <p>+34 123 456 789</p>
+        
+        <form class="grid md:grid-cols-2 gap-8">
+          <div class="space-y-6">
+            <input type="text" placeholder="Nombre Completo" class="w-full bg-gray-900 rounded-lg px-4 py-3 border border-gray-700 focus:border-blue-400 focus:ring-2 focus:ring-blue-500/30">
+            <input type="email" placeholder="Correo Electrónico" class="w-full bg-gray-900 rounded-lg px-4 py-3 border border-gray-700 focus:border-blue-400">
+          </div>
+          <div class="space-y-6">
+            <input type="tel" placeholder="Teléfono" class="w-full bg-gray-900 rounded-lg px-4 py-3 border border-gray-700 focus:border-blue-400">
+            <select class="w-full bg-gray-900 rounded-lg px-4 py-3 border border-gray-700 focus:border-blue-400">
+              <option>Servicio de interés</option>
+              <option>HyperAutomation</option>
+              <option>Customer Experience</option>
+            </select>
+          </div>
+          <div class="md:col-span-2">
+            <textarea rows="4" placeholder="Mensaje" class="w-full bg-gray-900 rounded-lg px-4 py-3 border border-gray-700 focus:border-blue-400"></textarea>
+          </div>
+          <button class="md:col-span-2 w-full bg-blue-500 hover:bg-blue-600 py-4 rounded-lg font-medium transition-colors">
+            Enviar Consulta
+          </button>
+        </form>
       </div>
     </div>
-    <div class="border-t border-gray-700 mt-12 pt-8 text-center text-sm">
-      <p>© 2024 Lightsense. Todos los derechos reservados</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800/50 py-12 mt-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8 text-gray-300">
+        <div>
+          <img src="/logos/logo_footer.png" alt="Lightsense" class="h-8 mb-4">
+          <p class="text-sm">Innovación tecnológica para resultados estratégicos</p>
+        </div>
+        <div>
+          <h4 class="text-blue-400 font-semibold mb-4">Servicios</h4>
+          <ul class="space-y-2">
+            <li><a href="#servicios" class="hover:text-white">Automatización</a></li>
+            <li><a href="#servicios" class="hover:text-white">Experiencia de Cliente</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-blue-400 font-semibold mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-white">Términos de Servicio</a></li>
+            <li><a href="#" class="hover:text-white">Política de Privacidad</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-blue-400 font-semibold mb-4">Contacto</h4>
+          <p class="mb-2">info@lightsense.com</p>
+          <p>+34 123 456 789</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-sm">
+        <p>© 2024 Lightsense. Todos los derechos reservados</p>
+      </div>
     </div>
-  </div>
-</footer>
-  
-<!-- Add this script at the end of your body before closing </body> tag Hamburger Menu -->
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mainNav = document.getElementById('main-nav');
+  </footer>
 
-  // Función para alternar menú
-  const toggleMenu = () => {
-    menuBtn.classList.toggle('active');
-    mainNav.classList.toggle('active');
-    document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : 'auto';
-  };
-
-  // Evento click en hamburguesa
-  menuBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleMenu();
-  });
-
-  // Cerrar menú al hacer click en enlaces
-  document.querySelectorAll('#main-nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth < 768) toggleMenu();
-    });
-  });
-
-  // Cerrar menú al hacer click fuera
-  document.addEventListener('click', (e) => {
-    if (!mainNav.contains(e.target) && !menuBtn.contains(e.target)) {
-      if (mainNav.classList.contains('active')) toggleMenu();
-    }
-  });
-
-  // Resetear en resize
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 768) {
-      mainNav.classList.remove('active');
-      menuBtn.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-  });
-</script>
-  
 </body>
 </html>
