@@ -32,33 +32,60 @@
       letter-spacing: 0.04em;
       font-weight: 500; /* Más ligero para tarjetas */
     }
+    /* Desplazamiento suave para los enlaces */
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
+  
   <!-- Header -->
-  <header class="flex items-center justify-between px-6 py-4 border-b border-gray-700">
-    <div class="text-xl font-bold text-blue-400">LS <span class="text-white">LIGHTSENSE</span></div>
-    <nav class="space-x-6">
-      <a href="#" class="hover:text-blue-400" aria-label="Solicita una reunión">Solicita una reunión</a>
-      <a href="#" class="hover:text-blue-400" aria-label="Conoce más sobre Lightsense">Conoce</a>
-    </nav>
-  </header>
+<header class="flex items-center justify-between px-6 py-4 border-b border-gray-700">
+  <div class="text-xl font-bold">
+    <img src="/logos/logo_header.png" alt="Lightsense Logo" class="h-6 inline-block mr-2"> <span class="text-white">LIGHTSENSE</span>
+  </div>
+  <nav class="space-x-6">
+    <a href="#servicios-principales" class="hover:text-blue-400" aria-label="Ir a la sección de Servicios Principales">Servicios</a>
+    <a href="#alianzas" class="hover:text-blue-400" aria-label="Ir a la sección de Alianzas">Alianzas</a>
+    <a href="#contacto" class="hover:text-blue-400" aria-label="Ir a la sección de Contacto">Contacto</a>
+  </nav>
+</header>
 
   <!-- Hero -->
-  <section class="px-6 py-20 text-center max-w-2xl mx-auto">
-    <h1 class="text-4xl font-bold mb-6">
-      Solving <span class="text-blue-400">business needs</span> with <span class="text-purple-500">smart technology</span>.
-    </h1>
-    <p class="text-base text-gray-300">
-      En Lightsense ayudamos a empresas a modernizarse, automatizar y resolver sus necesidades
-      con soluciones líderes como Salesforce, Appian y Databricks. Navega con éxito en la
-      convergencia entre estrategia, tecnología y ejecución.
-    </p>
-    <hr class="mt-6 mb-1 border-t-2 border-blue-400" />
+  <section class="px-6 py-20 text-center max-w-2xl mx-auto relative overflow-hidden bg-gradient-to-r from-blue-900 to-purple-500 rounded-lg">
+    <!-- Capa de fondo con gráficos de datos -->
+    <div class="absolute inset-0 opacity-20 pointer-events-none">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1200 600">
+        <!-- Líneas de gráfico -->
+        <polyline points="100,500 300,400 500,450 700,300 900,350 1100,200" stroke="white" stroke-width="2" opacity="0.5" />
+        <polyline points="150,550 350,450 550,500 750,350 950,400 1150,250" stroke="white" stroke-width="2" opacity="0.5" />
+        <!-- Puntos de datos -->
+        <circle cx="300" cy="400" r="5" fill="white" opacity="0.7" />
+        <circle cx="500" cy="450" r="5" fill="white" opacity="0.7" />
+        <circle cx="700" cy="300" r="5" fill="white" opacity="0.7" />
+        <!-- Barras pequeñas -->
+        <rect x="100" y="450" width="30" height="50" fill="white" opacity="0.3" />
+        <rect x="150" y="400" width="30" height="100" fill="white" opacity="0.3" />
+        <rect x="200" y="420" width="30" height="80" fill="white" opacity="0.3" />
+      </svg>
+    </div>
+    <!-- Contenido del Hero -->
+    <div class="relative z-10">
+      <h1 class="text-4xl font-bold mb-6">
+        Solving <span class="text-blue-400">business needs</span> with <span class="text-purple-500">smart technology</span>.
+      </h1>
+      <p class="text-base text-gray-300">
+        En Lightsense ayudamos a empresas a modernizarse, automatizar y resolver sus necesidades
+        con soluciones líderes como Salesforce, Appian y Databricks. Navega con éxito en la
+        convergencia entre estrategia, tecnología y ejecución.
+      </p>
+      <hr class="mt-6 mb-1 border-t-2 border-blue-400" />
+    </div>
   </section>
 
   <!-- Servicios principales -->
-  <section class="px-6 py-12 max-w-6xl mx-auto">
+  <section id="servicios-principales" class="px-6 py-12 max-w-6xl mx-auto">
     <h2 class="text-2xl font-semibold mb-8 text-center">Servicios principales</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <div class="bg-gray-800 p-6 rounded-lg hover:bg-purple-700 transition-colors">
@@ -91,7 +118,7 @@
   </section>
 
   <!-- Alianzas -->
-  <section class="px-6 py-12 max-w-6xl mx-auto">
+  <section id="alianzas" class="px-6 py-12 max-w-6xl mx-auto">
     <h2 class="text-2xl font-semibold mb-8 text-center text-white">Alianzas</h2>
     <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
       <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
@@ -109,6 +136,14 @@
       <div class="bg-gray-900 p-6 rounded-lg flex items-center justify-center">
         <img src="logos/palantir.png" alt="Palantir" class="h-16 w-24 object-contain" loading="lazy">
       </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="px-6 py-12 max-w-2xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-8 text-center">Contacto</h2>
+    <div class="bg-gray-800 p-6 rounded-lg text-center border-2 border-blue-400 hover:bg-purple-700 transition-colors">
+      <p class="text-gray-300">Contáctanos para más información: <a href="mailto:info@lightsense.com" class="text-blue-400">info@lightsense.com</a></p>
     </div>
   </section>
 </body>
