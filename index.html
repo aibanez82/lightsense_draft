@@ -53,19 +53,21 @@
 <body class="bg-gray-900 text-gray-100">
   
   <!-- Header Simplificado -->
-  <header class="sticky top-0 z-50 bg-gray-900 border-b border-gray-700">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center">
-        <img src="/logos/logo_header.png" alt="Lightsense Logo" class="h-6 inline-block mr-2">
-        <span class="text-white text-xl font-bold">LIGHTSENSE</span>
-      </div>
-      <nav class="hidden md:flex space-x-8">
-        <a href="#servicios" class="hover:text-blue-400">Servicios</a>
-        <a href="#alianzas" class="hover:text-blue-400">Alianzas</a>
-        <a href="#contacto" class="hover:text-blue-400">Contacto</a>
-      </nav>
-    </div>
-  </header>
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-gray-900 border-b border-gray-700">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="#" class="flex items-center hover:opacity-80 transition-opacity">
+      <img src="/logos/logo_header.png" alt="Lightsense Logo" class="h-6 inline-block mr-2">
+      <span class="text-white text-xl font-bold">LIGHTSENSE</span>
+    </a>
+    
+    <nav class="hidden md:flex space-x-8">
+      <a href="#servicios" class="hover:text-blue-400">Servicios</a>
+      <a href="#alianzas" class="hover:text-blue-400">Alianzas</a>
+      <a href="#contacto" class="hover:text-blue-400">Contacto</a>
+    </nav>
+  </div>
+</header>
 
   <!-- Hero Section -->
   <section class="px-6 py-24 md:py-32 text-center relative overflow-hidden bg-gradient-to-br from-blue-900 via-purple-800 to-purple-600">
@@ -228,6 +230,18 @@
       </div>
     </div>
   </footer>
+
+  <script>
+  // Scroll suave para todos los enlaces con hash
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
