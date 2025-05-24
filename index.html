@@ -98,23 +98,33 @@
 </head>
 <body class="bg-gray-900 text-gray-100">
   
-  <!-- Header -->
-<header class="flex items-center justify-between px-6 py-4 border-b border-gray-700 bg-gray-900">
+  <!-- Header actualizado -->
+<header class="flex items-center justify-between px-6 py-4 border-b border-gray-700 bg-gray-900 sticky top-0 z-50">
+  <!-- Logo -->
   <div class="flex items-center">
     <img src="/logos/logo_header.png" alt="Lightsense Logo" class="h-6 inline-block mr-2">
     <span class="text-white text-xl font-bold">LIGHTSENSE</span>
   </div>
 
-  <button id="menu-btn" class="md:hidden p-2 text-gray-300 hover:text-white">
-    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <!-- Botón Hamburguesa -->
+  <button 
+    id="menu-btn"
+    class="md:hidden p-2 text-gray-300 hover:text-white focus:outline-none"
+    aria-expanded="false"
+  >
+    <svg class="w-8 h-8 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
     </svg>
   </button>
 
-  <nav id="main-nav" class="hidden md:flex md:items-center md:space-x-6">
-    <a href="#servicios-principales" class="hover:text-blue-400">Servicios</a>
-    <a href="#alianzas" class="hover:text-blue-400">Alianzas</a>
-    <a href="#contacto" class="hover:text-blue-400">Contacto</a>
+  <!-- Menú de Navegación -->
+  <nav 
+    id="main-nav"
+    class="md:flex md:items-center md:space-x-6 hidden"
+  >
+    <a href="#servicios-principales" class="hover:text-blue-400 py-2 px-4">Servicios</a>
+    <a href="#alianzas" class="hover:text-blue-400 py-2 px-4">Alianzas</a>
+    <a href="#contacto" class="hover:text-blue-400 py-2 px-4">Contacto</a>
   </nav>
 </header>
 
