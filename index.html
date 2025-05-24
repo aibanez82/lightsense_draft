@@ -47,52 +47,38 @@
 /* ADD THIS NEW MEDIA QUERY AT THE END OF YOUR STYLE SECTION Hamburger Menu */
     
 @media (max-width: 767px) {
-    /* Menú móvil */
-    #main-nav {
-      position: fixed;
-      top: 60px; /* Ajusta según la altura de tu header */
-      left: 0;
-      right: 0;
-      background: #1a202c;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.3s ease-in-out;
-      z-index: 50;
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    #main-nav.active {
-      max-height: 500px;
-      opacity: 1;
-      visibility: visible;
-      padding: 1rem 0;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-    }
-
-    #main-nav a {
-      display: block;
-      padding: 1rem 2rem;
-      color: #e2e8f0;
-      border-bottom: 1px solid #2d3748;
-      transition: all 0.2s ease;
-    }
-
-    #main-nav a:hover {
-      background: #2d3748;
-      color: #63b3ed;
-    }
-
-    #menu-btn {
-      transition: all 0.3s ease;
-      z-index: 100;
-    }
-
-    #menu-btn.active {
-      transform: rotate(90deg);
-      border-color: #fff;
-    }
+  #main-nav {
+    position: fixed;
+    top: 68px; /* Ajustado según altura del header */
+    left: 0;
+    right: 0;
+    background: #1a202c;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 40;
+    opacity: 0;
+    display: block !important; /* Forzar display */
   }
+
+  #main-nav.active {
+    max-height: 500px;
+    opacity: 1;
+    padding: 1rem 0;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  }
+
+  #main-nav a {
+    display: block;
+    padding: 1rem 2rem;
+    color: #e2e8f0;
+    border-bottom: 1px solid #2d3748;
+  }
+
+  #menu-btn.active svg {
+    transform: rotate(90deg);
+  }
+}
     
   </style>
 </head>
@@ -217,25 +203,26 @@
   const menuBtn = document.getElementById('menu-btn');
   const mainNav = document.getElementById('main-nav');
 
-  menuBtn.addEventListener('click', () => {
-    // Alternar clases
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    
+    // Toggle classes
     menuBtn.classList.toggle('active');
     mainNav.classList.toggle('active');
+    menuBtn.setAttribute('aria-expanded', !isExpanded);
     
-    // Controlar el overflow del body
-    if (mainNav.classList.contains('active')) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
+    // Controlar scroll
+    document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : 'auto';
   });
 
-  // Cerrar menú al hacer clic en enlace (mobile)
+  // Cerrar menú al hacer clic en enlaces
   document.querySelectorAll('#main-nav a').forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth < 768) {
-        menuBtn.classList.remove('active');
         mainNav.classList.remove('active');
+        menuBtn.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = 'auto';
       }
     });
@@ -243,9 +230,20 @@
 
   // Cerrar menú al hacer clic fuera
   document.addEventListener('click', (e) => {
-    if (!menuBtn.contains(e.target) && !mainNav.contains(e.target)) {
-      menuBtn.classList.remove('active');
+    if (!mainNav.contains(e.target) {
       mainNav.classList.remove('active');
+      menuBtn.classList.remove('active');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Resetear al cambiar tamaño de pantalla
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+      mainNav.classList.remove('active');
+      menuBtn.classList.remove('active');
+      menuBtn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = 'auto';
     }
   });
