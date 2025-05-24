@@ -49,15 +49,27 @@
   
   <!-- Header -->
 <header class="flex flex-wrap items-center justify-between px-4 sm:px-6 py-4 border-b border-gray-700">
-  <div class="text-xl font-bold mb-4 sm:mb-0">
+  <div class="flex items-center flex-shrink-0">
     <img src="/logos/logo_header.png" alt="Lightsense Logo" class="h-6 inline-block mr-2"> 
-    <span class="text-white">LIGHTSENSE</span>
+    <span class="text-white text-xl font-bold">LIGHTSENSE</span>
   </div>
-  <nav class="w-full sm:w-auto flex justify-center sm:block">
-    <div class="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0">
-      <a href="#servicios-principales" class="px-3 py-1 hover:text-blue-400 transition-colors">Servicios</a>
-      <a href="#alianzas" class="px-3 py-1 hover:text-blue-400 transition-colors">Alianzas</a>
-      <a href="#contacto" class="px-3 py-1 hover:text-blue-400 transition-colors">Contacto</a>
+
+  <!-- Hamburger Button (Mobile Only) -->
+  <div class="block md:hidden">
+    <button id="menu-btn" class="flex items-center px-3 py-2 border rounded text-gray-300 border-gray-400 hover:text-white hover:border-white">
+      <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <title>Menu</title>
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav id="main-nav" class="hidden w-full md:w-auto md:flex md:items-center transition-all duration-300 ease-in-out">
+    <div class="text-sm md:flex-grow md:flex md:space-x-6 mt-4 md:mt-0">
+      <a href="#servicios-principales" class="block md:inline-block px-3 py-2 hover:text-blue-400 transition-colors text-center">Servicios</a>
+      <a href="#alianzas" class="block md:inline-block px-3 py-2 hover:text-blue-400 transition-colors text-center">Alianzas</a>
+      <a href="#contacto" class="block md:inline-block px-3 py-2 hover:text-blue-400 transition-colors text-center">Contacto</a>
     </div>
   </nav>
 </header>
@@ -156,5 +168,32 @@
       <p class="text-gray-300">Contáctanos para más información: <a href="mailto:info@lightsense.com" class="text-blue-400">info@lightsense.com</a></p>
     </div>
   </section>
+
+<!-- Add this script at the end of your body before closing </body> tag -->
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mainNav = document.getElementById('main-nav');
+
+  menuBtn.addEventListener('click', () => {
+    mainNav.classList.toggle('hidden');
+    mainNav.classList.toggle('absolute');
+    mainNav.classList.toggle('bg-gray-900');
+    mainNav.classList.toggle('z-50');
+    mainNav.classList.toggle('w-full');
+    mainNav.classList.toggle('left-0');
+    mainNav.classList.toggle('shadow-lg');
+  });
+
+  // Close menu when clicking a link (mobile only)
+  document.querySelectorAll('#main-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth < 768) {
+        mainNav.classList.add('hidden');
+        mainNav.classList.remove('absolute', 'bg-gray-900', 'z-50', 'w-full', 'left-0', 'shadow-lg');
+      }
+    });
+  });
+</script>
+  
 </body>
 </html>
