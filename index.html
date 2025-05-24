@@ -43,6 +43,28 @@
     html {
       scroll-behavior: smooth;
     }
+
+/* ADD THIS NEW MEDIA QUERY AT THE END OF YOUR STYLE SECTION */
+    @media (max-width: 767px) {
+      #main-nav {
+        top: 100%;
+        padding: 1rem 0;
+      }
+      
+      #main-nav a {
+        padding: 0.75rem 1rem;
+        margin: 0.25rem 0;
+      }
+      
+      #menu-btn {
+        transition: all 0.3s ease;
+      }
+      
+      #menu-btn[aria-expanded="true"] {
+        transform: rotate(90deg);
+      }
+    }
+    
   </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
