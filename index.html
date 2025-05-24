@@ -45,7 +45,25 @@
   </header>
 
   <!-- Hero -->
-  <section class="px-6 py-20 text-center max-w-2xl mx-auto">
+<section class="px-6 py-20 text-center max-w-2xl mx-auto relative overflow-hidden bg-gradient-to-r from-blue-900 to-purple-900 rounded-lg">
+  <!-- Capa de fondo con gráficos de datos -->
+  <div class="absolute inset-0 opacity-20 pointer-events-none">
+    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1200 600">
+      <!-- Líneas de gráfico -->
+      <polyline points="100,500 300,400 500,450 700,300 900,350 1100,200" stroke="white" stroke-width="2" opacity="0.5" />
+      <polyline points="150,550 350,450 550,500 750,350 950,400 1150,250" stroke="white" stroke-width="2" opacity="0.5" />
+      <!-- Puntos de datos -->
+      <circle cx="300" cy="400" r="5" fill="white" opacity="0.7" />
+      <circle cx="500" cy="450" r="5" fill="white" opacity="0.7" />
+      <circle cx="700" cy="300" r="5" fill="white" opacity="0.7" />
+      <!-- Barras pequeñas -->
+      <rect x="100" y="450" width="30" height="50" fill="white" opacity="0.3" />
+      <rect x="150" y="400" width="30" height="100" fill="white" opacity="0.3" />
+      <rect x="200" y="420" width="30" height="80" fill="white" opacity="0.3" />
+    </svg>
+  </div>
+  <!-- Contenido del Hero -->
+  <div class="relative z-10">
     <h1 class="text-4xl font-bold mb-6">
       Solving <span class="text-blue-400">business needs</span> with <span class="text-purple-500">smart technology</span>.
     </h1>
@@ -55,7 +73,8 @@
       convergencia entre estrategia, tecnología y ejecución.
     </p>
     <hr class="mt-6 mb-1 border-t-2 border-blue-400" />
-  </section>
+  </div>
+</section>
 
   <!-- Servicios principales -->
   <section class="px-6 py-12 max-w-6xl mx-auto">
