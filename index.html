@@ -117,18 +117,29 @@
     </div>
 
     <!-- Customer Experience -->
-    <div class="bg-gray-800 p-8 rounded-xl border-2 border-gray-700 hover:border-blue-400 transition-all group relative overflow-hidden hover-scale">
-      <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-      <div class="relative z-10">
-        <div class="w-14 h-14 bg-blue-900/30 rounded-xl mb-4 flex items-center justify-center">
-          <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-3 group-hover:text-white">Customer Experience</h3>
-        <p class="text-gray-400 leading-relaxed group-hover:text-gray-100">Gestión integral de relaciones con clientes (CRM) personalizado</p>
+    <div class="bg-gray-800 p-6 rounded-xl border-2 border-gray-700 hover:border-blue-400 transition-all group relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+  <div class="relative z-10">
+    <div class="flex justify-between items-start">
+      <div class="w-14 h-14 bg-blue-900/30 rounded-xl mb-4 flex items-center justify-center">
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
       </div>
+      <button class="toggle-btn text-blue-400 hover:text-blue-300 transition-colors text-2xl" aria-expanded="false">
+        +
+      </button>
     </div>
+    
+    <h3 class="text-xl font-semibold mb-2 group-hover:text-white">Customer Experience</h3>
+    
+    <div class="description-container overflow-hidden transition-all duration-300 max-h-0">
+      <p class="text-gray-400 leading-relaxed group-hover:text-gray-100">
+        Gestión integral de relaciones con clientes (CRM) personalizado
+      </p>
+    </div>
+  </div>
+</div>
 
     <!-- Data Analytics -->
     <div class="bg-gray-800 p-8 rounded-xl border-2 border-gray-700 hover:border-blue-400 transition-all group relative overflow-hidden hover-scale">
@@ -380,6 +391,32 @@
   }
 }
 </script>
+
+<script>
+document.querySelector('.toggle-btn').addEventListener('click', function() {
+  const description = this.closest('.relative').querySelector('.description-container');
+  const isExpanded = this.getAttribute('aria-expanded') === 'true';
+  
+  this.textContent = isExpanded ? '+' : '×';
+  this.setAttribute('aria-expanded', !isExpanded);
+  description.style.maxHeight = isExpanded ? '0' : `${description.scrollHeight}px`;
+});
+</script>
+
+<style>
+.toggle-btn {
+  transition: transform 0.3s ease;
+}
+
+.toggle-btn[aria-expanded="true"] {
+  transform: rotate(45deg);
+}
+
+.description-container {
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+</style>
+
   
 </body>
 </html>
