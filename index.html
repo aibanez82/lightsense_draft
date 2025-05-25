@@ -48,6 +48,12 @@
         color: #f7fafc !important;
       }
     }
+    img {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.group:hover img {
+  transform: scale(1.05) !important;
+}
   </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
@@ -159,57 +165,50 @@
   <div class="container mx-auto px-6">
     <h2 class="text-3xl font-bold text-center mb-12">Alianzas Estratégicas</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-      <!-- Cada logo tiene mismo contenedor -->
-      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all duration-300 h-40 flex items-center justify-center p-6">
-        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-xl transition-all"></div>
-        <img src="logos/appian.png" alt="Appian Partner" 
-             class="h-20 w-auto max-w-[160px] object-contain opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all">
+      <!-- Appian (Ejemplo de logo bien escalado) -->
+      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all h-40 flex items-center justify-center p-4">
+        <img src="logos/appian.png" alt="Appian" 
+             class="h-24 w-auto max-w-[180px] object-scale-down opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0">
       </div>
 
-      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all duration-300 h-40 flex items-center justify-center p-6">
-        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-xl transition-all"></div>
-        <img src="logos/salesforce.png" alt="Salesforce Partner"
-             class="h-20 w-auto max-w-[160px] object-contain opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all">
+      <!-- Salesforce (Ajuste especial) -->
+      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all h-40 flex items-center justify-center p-4">
+        <img src="logos/salesforce.png" alt="Salesforce" 
+             class="h-20 w-auto max-w-[140px] object-scale-down opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0">
       </div>
 
-      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all duration-300 h-40 flex items-center justify-center p-6">
-        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-xl transition-all"></div>
-        <img src="logos/databricks.png" alt="Databricks Partner"
-             class="h-20 w-auto max-w-[160px] object-contain opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all">
+      <!-- Databricks (Ajuste vertical) -->
+      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all h-40 flex items-center justify-center p-4">
+        <img src="logos/databricks.png" alt="Databricks" 
+             class="h-24 w-auto max-w-[160px] object-scale-down opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0">
       </div>
 
-      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all duration-300 h-40 flex items-center justify-center p-6">
-        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-xl transition-all"></div>
-        <img src="logos/mulesoft.png" alt="MuleSoft Partner"
-             class="h-20 w-auto max-w-[160px] object-contain opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all">
+      <!-- Mulesoft (Logo horizontal) -->
+      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all h-40 flex items-center justify-center p-4">
+        <img src="logos/mulesoft.png" alt="MuleSoft" 
+             class="h-16 w-auto max-w-[200px] object-scale-down opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0">
       </div>
 
-      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all duration-300 h-40 flex items-center justify-center p-6">
-        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-xl transition-all"></div>
-        <img src="logos/snowflake.png" alt="Snowflake Partner"
-             class="h-20 w-auto max-w-[160px] object-contain opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all">
+      <!-- Snowflake (Logo compacto) -->
+      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all h-40 flex items-center justify-center p-5">
+        <img src="logos/snowflake.png" alt="Snowflake" 
+             class="h-28 w-auto max-w-[120px] object-scale-down opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0">
       </div>
 
-      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all duration-300 h-40 flex items-center justify-center p-6">
-        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-xl transition-all"></div>
-        <img src="logos/palantir.png" alt="Palantir Partner"
-             class="h-20 w-auto max-w-[160px] object-contain opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all">
+      <!-- Palantir (Manteniendo tamaño original) -->
+      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all h-40 flex items-center justify-center p-4">
+        <img src="logos/palantir.png" alt="Palantir" 
+             class="h-24 w-auto max-w-[180px] object-scale-down opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0">
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  /* Asegurar consistencia en todos los navegadores */
-  img {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-  }
-  
-  .group:hover img {
-    transform: scale(1.05);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+  /* Ajuste fino de densidades de logo */
+  [alt="Salesforce"] { transform: scale(1.1); }
+  [alt="MuleSoft"]   { transform: scale(1.15); padding: 8px; }
+  [alt="Snowflake"]  { transform: scale(1.25); }
 </style>
 
 
