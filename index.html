@@ -159,46 +159,58 @@
   <div class="container mx-auto px-6">
     <h2 class="text-3xl font-bold text-center mb-12">Alianzas Estratégicas</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-      <!-- Fila 1 -->
-      <div class="bg-gray-900 p-4 rounded-xl hover:bg-gray-800 transition-colors flex items-center justify-center h-40 min-h-[160px] grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300">
+      <!-- Cada logo tiene mismo contenedor -->
+      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all duration-300 h-40 flex items-center justify-center p-6">
+        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-xl transition-all"></div>
         <img src="logos/appian.png" alt="Appian Partner" 
-             class="h-16 object-contain opacity-80 hover:opacity-100 p-4"
-             loading="lazy" width="160" height="64">
+             class="h-20 w-auto max-w-[160px] object-contain opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all">
       </div>
 
-      <div class="bg-gray-900 p-4 rounded-xl hover:bg-gray-800 transition-colors flex items-center justify-center h-40 min-h-[160px] grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300">
+      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all duration-300 h-40 flex items-center justify-center p-6">
+        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-xl transition-all"></div>
         <img src="logos/salesforce.png" alt="Salesforce Partner"
-             class="h-16 object-contain opacity-80 hover:opacity-100 p-4"
-             loading="lazy" width="160" height="64">
+             class="h-20 w-auto max-w-[160px] object-contain opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all">
       </div>
 
-      <div class="bg-gray-900 p-4 rounded-xl hover:bg-gray-800 transition-colors flex items-center justify-center h-40 min-h-[160px] grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300">
+      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all duration-300 h-40 flex items-center justify-center p-6">
+        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-xl transition-all"></div>
         <img src="logos/databricks.png" alt="Databricks Partner"
-             class="h-16 object-contain opacity-80 hover:opacity-100 p-4"
-             loading="lazy" width="160" height="64">
+             class="h-20 w-auto max-w-[160px] object-contain opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all">
       </div>
 
-      <!-- Fila 2 -->
-      <div class="bg-gray-900 p-4 rounded-xl hover:bg-gray-800 transition-colors flex items-center justify-center h-40 min-h-[160px] grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300">
+      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all duration-300 h-40 flex items-center justify-center p-6">
+        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-xl transition-all"></div>
         <img src="logos/mulesoft.png" alt="MuleSoft Partner"
-             class="h-16 object-contain opacity-80 hover:opacity-100 p-4"
-             loading="lazy" width="160" height="64">
+             class="h-20 w-auto max-w-[160px] object-contain opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all">
       </div>
 
-      <div class="bg-gray-900 p-4 rounded-xl hover:bg-gray-800 transition-colors flex items-center justify-center h-40 min-h-[160px] grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300">
+      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all duration-300 h-40 flex items-center justify-center p-6">
+        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-xl transition-all"></div>
         <img src="logos/snowflake.png" alt="Snowflake Partner"
-             class="h-16 object-contain opacity-80 hover:opacity-100 p-4"
-             loading="lazy" width="160" height="64">
+             class="h-20 w-auto max-w-[160px] object-contain opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all">
       </div>
 
-      <div class="bg-gray-900 p-4 rounded-xl hover:bg-gray-800 transition-colors flex items-center justify-center h-40 min-h-[160px] grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300">
+      <div class="group relative bg-gray-900 rounded-xl hover:bg-gray-800 transition-all duration-300 h-40 flex items-center justify-center p-6">
+        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-400/30 rounded-xl transition-all"></div>
         <img src="logos/palantir.png" alt="Palantir Partner"
-             class="h-16 object-contain opacity-80 hover:opacity-100 p-4"
-             loading="lazy" width="160" height="64">
+             class="h-20 w-auto max-w-[160px] object-contain opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all">
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* Asegurar consistencia en todos los navegadores */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+  
+  .group:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>
 
 
     
