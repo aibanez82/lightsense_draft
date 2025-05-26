@@ -51,10 +51,11 @@
     </a>
     
     <nav class="hidden md:flex space-x-8">
-      <a href="#servicios" class="hover:text-blue-400">Servicios</a>
-      <a href="#alianzas" class="hover:text-blue-400">Alianzas</a>
-      <a href="#contacto" class="hover:text-blue-400">Contacto</a>
-    </nav>
+  <a href="#servicios" class="hover:text-blue-400">Servicios</a>
+  <a href="#modalidades" class="hover:text-blue-400">Modalidades</a>
+  <a href="#alianzas" class="hover:text-blue-400">Alianzas</a>
+  <a href="#contacto" class="hover:text-blue-400">Contacto</a>
+</nav>
   </div>
 </header>
 
@@ -172,6 +173,130 @@
   </div>
 </section>
 
+
+<!-- Modalidades de Servicio -->
+<section id="modalidades" class="py-16 container mx-auto px-6">
+  <h2 class="text-3xl font-bold text-center mb-12">Modalidades de Servicio</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    
+    <!-- Assessment -->
+    <div class="bg-gray-800 p-6 rounded-xl border-2 border-gray-700 hover:border-blue-400 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <div class="relative z-10">
+        <div class="flex justify-between items-start">
+          <div class="w-14 h-14 bg-blue-900/30 rounded-xl mb-4 flex items-center justify-center">
+            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <button class="toggle-btn text-blue-400 hover:text-blue-300 transition-transform text-2xl" aria-expanded="false">
+            +
+          </button>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 group-hover:text-white">Assessment</h3>
+        <div class="description-container overflow-hidden transition-all duration-300 max-h-0">
+          <p class="text-gray-400 leading-relaxed group-hover:text-gray-100">
+            Realizamos un entendimiento profundo de la situación actual de tu negocio y diseñamos un roadmap estratégico de mejoras para optimizar procesos y alcanzar tus objetivos.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyecto Llave en Mano -->
+    <div class="bg-gray-800 p-6 rounded-xl border-2 border-gray-700 hover:border-blue-400 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <div class="relative z-10">
+        <div class="flex justify-between items-start">
+          <div class="w-14 h-14 bg-blue-900/30 rounded-xl mb-4 flex items-center justify-center">
+            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <button class="toggle-btn text-blue-400 hover:text-blue-300 transition-transform text-2xl" aria-expanded="false">
+            +
+          </button>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 group-hover:text-white">Proyecto Llave en Mano</h3>
+        <div class="description-container overflow-hidden transition-all duration-300 max-h-0">
+          <p class="text-gray-400 leading-relaxed group-hover:text-gray-100">
+            Implementamos soluciones integrales de principio a fin, entregando un producto o sistema completamente funcional adaptado a tus necesidades, con un enfoque en calidad, eficiencia y cumplimiento de plazos.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Células Ágiles -->
+    <div class="bg-gray-800 p-6 rounded-xl border-2 border-gray-700 hover:border-blue-400 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <div class="relative z-10">
+        <div class="flex justify-between items-start">
+          <div class="w-14 h-14 bg-blue-900/30 rounded-xl mb-4 flex items-center justify-center">
+            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7v-2a3 3 0 005.356-1.857M17 20v2m-10 0v-2m-3-2h16M7 8h10M7 12h4"/>
+            </svg>
+          </div>
+          <button class="toggle-btn text-blue-400 hover:text-blue-300 transition-transform text-2xl" aria-expanded="false">
+            +
+          </button>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 group-hover:text-white">Células Ágiles</h3>
+        <div class="description-container overflow-hidden transition-all duration-300 max-h-0">
+          <p class="text-gray-400 leading-relaxed group-hover:text-gray-100">
+            Equipos dinámicos y especializados que trabajan en ciclos iterativos, colaborando estrechamente contigo para desarrollar soluciones personalizadas, flexibles y escalables, adaptándose rápidamente a cambios y prioridades.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Servicios Gestionados -->
+    <div class="bg-gray-800 p-6 rounded-xl border-2 border-gray-700 hover:border-blue-400 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <div class="relative z-10">
+        <div class="flex justify-between items-start">
+          <div class="w-14 h-14 bg-blue-900/30 rounded-xl mb-4 flex items-center justify-center">
+            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6h4m-4 6a9 9 0 110-18 9 9 0 010 18z"/>
+            </svg>
+          </div>
+          <button class="toggle-btn text-blue-400 hover:text-blue-300 transition-transform text-2xl" aria-expanded="false">
+            +
+          </button>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 group-hover:text-white">Servicios Gestionados</h3>
+        <div class="description-container overflow-hidden transition-all duration-300 max-h-0">
+          <p class="text-gray-400 leading-relaxed group-hover:text-gray-100">
+            Ofrecemos gestión continua y soporte proactivo para tus sistemas y procesos, asegurando su óptimo funcionamiento, actualizaciones regulares y resolución de incidencias, permitiéndote enfocarte en tu negocio.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Time & Materials -->
+    <div class="bg-gray-800 p-6 rounded-xl border-2 border-gray-700 hover:border-blue-400 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <div class="relative z-10">
+        <div class="flex justify-between items-start">
+          <div class="w-14 h-14 bg-blue-900/30 rounded-xl mb-4 flex items-center justify-center">
+            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <button class="toggle-btn text-blue-400 hover:text-blue-300 transition-transform text-2xl" aria-expanded="false">
+            +
+          </button>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 group-hover:text-white">Time & Materials</h3>
+        <div class="description-container overflow-hidden transition-all duration-300 max-h-0">
+          <p class="text-gray-400 leading-relaxed group-hover:text-gray-100">
+            Proporcionamos recursos y experiencia técnica bajo un modelo flexible basado en tiempo y materiales, ideal para proyectos con requisitos cambiantes, donde pagas por el trabajo realizado según las horas invertidas y los recursos utilizados.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  
 <!-- Alianzas -->
 <section id="alianzas" class="py-16 bg-gray-800/20">
   <div class="container mx-auto px-6">
@@ -338,22 +463,35 @@
 </script>
 
 <script>
-  // Selecciona todos los botones con la clase toggle-btn
-  document.querySelectorAll('.toggle-btn').forEach(button => {
-    button.addEventListener('click', function() {
-      // Encuentra el contenedor padre de la tarjeta (el div con clase 'relative')
-      const card = this.closest('.relative');
-      // Encuentra la descripción dentro de esta tarjeta específica
-      const description = card.querySelector('.description-container');
-      // Verifica el estado actual de expansión
-      const isExpanded = this.getAttribute('aria-expanded') === 'true';
-      
-      // Cambia el texto del botón y el estado de aria-expanded
-      this.textContent = isExpanded ? '+' : '×';
-      this.setAttribute('aria-expanded', !isExpanded);
-      
-      // Ajusta la altura de la descripción
-      description.style.maxHeight = isExpanded ? '0' : `${description.scrollHeight}px`;
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.toggle-btn');
+    
+    buttons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Encuentra el contenedor padre de la tarjeta
+        const card = this.closest('.relative');
+        const description = card.querySelector('.description-container');
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+        // Depuración
+        console.log('Botón clicado:', this, 'Tarjeta:', card);
+
+        // Cierra todas las demás tarjetas
+        buttons.forEach(otherButton => {
+          if (otherButton !== this) {
+            const otherCard = otherButton.closest('.relative');
+            const otherDescription = otherCard.querySelector('.description-container');
+            otherButton.textContent = '+';
+            otherButton.setAttribute('aria-expanded', 'false');
+            otherDescription.style.maxHeight = '0';
+          }
+        });
+
+        // Alterna la tarjeta actual
+        this.textContent = isExpanded ? '+' : '×';
+        this.setAttribute('aria-expanded', !isExpanded);
+        description.style.maxHeight = isExpanded ? '0' : `${description.scrollHeight}px`;
+      });
     });
   });
 </script>
