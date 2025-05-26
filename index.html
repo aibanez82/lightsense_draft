@@ -341,11 +341,18 @@
   // Selecciona todos los botones con la clase toggle-btn
   document.querySelectorAll('.toggle-btn').forEach(button => {
     button.addEventListener('click', function() {
-      const description = this.closest('.relative').querySelector('.description-container');
+      // Encuentra el contenedor padre de la tarjeta (el div con clase 'relative')
+      const card = this.closest('.relative');
+      // Encuentra la descripción dentro de esta tarjeta específica
+      const description = card.querySelector('.description-container');
+      // Verifica el estado actual de expansión
       const isExpanded = this.getAttribute('aria-expanded') === 'true';
       
+      // Cambia el texto del botón y el estado de aria-expanded
       this.textContent = isExpanded ? '+' : '×';
       this.setAttribute('aria-expanded', !isExpanded);
+      
+      // Ajusta la altura de la descripción
       description.style.maxHeight = isExpanded ? '0' : `${description.scrollHeight}px`;
     });
   });
