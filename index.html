@@ -54,6 +54,22 @@
 .group:hover img {
   transform: scale(1.05) !important;
 }
+
+    .service-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top center;
+}
+
+.service-card:hover {
+  transform: translateZ(10px);
+}
+
+.toggle-btn {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+    
+    
   </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
@@ -67,6 +83,8 @@
       <img src="/logos/logo_header.png" alt="Lightsense Logo" class="h-6 inline-block mr-2">
       <span class="text-white text-xl font-bold">LIGHTSENSE</span>
     </a>
+
+<div class="service-card bg-gray-800 p-6 rounded-xl border-2 border-gray-700 hover:border-blue-400 transition-all group relative overflow-hidden">
     
     <nav class="hidden md:flex space-x-8">
       <a href="#servicios" class="hover:text-blue-400">Servicios</a>
@@ -408,12 +426,22 @@
 <script>
 document.querySelectorAll('.toggle-btn').forEach(button => {
   button.addEventListener('click', function() {
-    const description = this.closest('.relative').querySelector('.description-container');
+    const card = this.closest('.service-card');
+    const description = card.querySelector('.description-container');
     const isExpanded = this.getAttribute('aria-expanded') === 'true';
-    
+
+    // Animación suave
+    card.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+    description.style.transition = 'max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+
     this.textContent = isExpanded ? '+' : '×';
     this.setAttribute('aria-expanded', !isExpanded);
     description.style.maxHeight = isExpanded ? '0' : `${description.scrollHeight}px`;
+
+    // Forzar recálculo del layout
+    requestAnimationFrame(() => {
+      card.style.height = isExpanded ? 'auto' : `${card.scrollHeight}px`;
+    });
   });
 });
 </script>
