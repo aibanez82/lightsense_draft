@@ -102,19 +102,31 @@
 <section id="servicios" class="py-16 container mx-auto px-6">
   <h2 class="text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    
     <!-- HyperAutomation -->
-    <div class="bg-gray-800 p-8 rounded-xl border-2 border-gray-700 hover:border-blue-400 transition-all group relative overflow-hidden hover-scale">
-      <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-      <div class="relative z-10">
-        <div class="w-14 h-14 bg-blue-900/30 rounded-xl mb-4 flex items-center justify-center">
-          <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-3 group-hover:text-white">HyperAutomation</h3>
-        <p class="text-gray-400 leading-relaxed group-hover:text-gray-100">Flujos de trabajo inteligentes con plataformas low-code líderes</p>
+    <div class="bg-gray-800 p-6 rounded-xl border-2 border-gray-700 hover:border-blue-400 transition-all group relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+  <div class="relative z-10">
+    <div class="flex justify-between items-start">
+      <div class="w-14 h-14 bg-blue-900/30 rounded-xl mb-4 flex items-center justify-center">
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
       </div>
+      <button class="toggle-btn text-blue-400 hover:text-blue-300 transition-colors text-2xl" aria-expanded="false">
+        +
+      </button>
     </div>
+    
+    <h3 class="text-xl font-semibold mb-2 group-hover:text-white">HyperAutomation</h3>
+    
+    <div class="description-container overflow-hidden transition-all duration-300 max-h-0">
+      <p class="text-gray-400 leading-relaxed group-hover:text-gray-100">
+        Gestión integral de relaciones con clientes (CRM) personalizado
+      </p>
+    </div>
+  </div>
+</div>
 
     <!-- Customer Experience -->
     <div class="bg-gray-800 p-6 rounded-xl border-2 border-gray-700 hover:border-blue-400 transition-all group relative overflow-hidden">
