@@ -338,14 +338,17 @@
 </script>
 
 <script>
-document.querySelector('.toggle-btn').addEventListener('click', function() {
-  const description = this.closest('.relative').querySelector('.description-container');
-  const isExpanded = this.getAttribute('aria-expanded') === 'true';
-  
-  this.textContent = isExpanded ? '+' : '×';
-  this.setAttribute('aria-expanded', !isExpanded);
-  description.style.maxHeight = isExpanded ? '0' : `${description.scrollHeight}px`;
-});
+  // Selecciona todos los botones con la clase toggle-btn
+  document.querySelectorAll('.toggle-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      const description = this.closest('.relative').querySelector('.description-container');
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      this.textContent = isExpanded ? '+' : '×';
+      this.setAttribute('aria-expanded', !isExpanded);
+      description.style.maxHeight = isExpanded ? '0' : `${description.scrollHeight}px`;
+    });
+  });
 </script>
 
 <style>
